@@ -1,4 +1,5 @@
 import PokemonCard from './PokemonCard';
+import ScrollRevealFade from './ScrollRevealFade';
 import '../index.css'
 
 const PokemonList = ({ pokemons }) => {
@@ -7,11 +8,12 @@ const PokemonList = ({ pokemons }) => {
       return each.ability.name;
     });
   }
-
+  
   return (
     <div className="flex justify-center items-center mt-20">
       <div className='grid grid-cols-4 gap-4 '>
         {pokemons.map((pokemon, index) => (
+      <ScrollRevealFade>
           <PokemonCard
             key={index}
             name={pokemon.name}
@@ -20,6 +22,8 @@ const PokemonList = ({ pokemons }) => {
             id={pokemon.id}
             favourite={pokemon.favourite}
           />
+      </ScrollRevealFade>
+
         ))}
       </div>
     </div>
