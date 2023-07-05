@@ -5,7 +5,6 @@ import Searcher from "./Components/Searcher"
 import PokemonList from "./Components/PokemonList"
 import Nav from "./Components/Nav"
 import { setLoading, setPokemons } from "./actions"
-import ScrollRevealFade from "./Components/ScrollRevealFade"
 
 const App = () => {
   const pokemons = useSelector(state => state.pokemons)
@@ -19,8 +18,9 @@ const App = () => {
       const pokemonsRes = await getPokemons();
       const pokemonDeatails = await Promise.all(pokemonsRes.map(pokemon => getPokemonDetails(pokemon)))
       dispatch(setPokemons(pokemonDeatails))
+      dispatch(setLoading(false))
+
     }
-    dispatch(setLoading(false))
 
     fetchPokemons();
   }, []);

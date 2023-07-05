@@ -12,15 +12,22 @@ const ScrollRevealFade = ({ children }) => {
   useEffect(() => {
     if (inView) {
       setReveal(true);
+    } else {
+      setReveal(false);
     }
   }, [inView]);
 
   return (
-    <div ref={ref} className={`scroll-reveal-fade ${reveal ? 'fade-in' : ''}`}>
+    <div
+      ref={ref}
+      className={`scroll-reveal-fade ${reveal ? 'fade-in' : 'fade-out'}`}
+      style={{
+        transition: `opacity ${reveal ? '1s' : '0.3s'} ease-in-out`, // Ajusta la duración de la transición
+      }}
+    >
       {children}
     </div>
   );
 };
 
 export default ScrollRevealFade;
-
