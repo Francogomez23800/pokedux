@@ -32,7 +32,7 @@ const PokemonList = ({ pokemons }) => {
 
   return (
     <div className="flex flex-col justify-center items-center mt-10">
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid sm:grid-cols-1 2sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         {currentPokemons.map((pokemon, index) => (
           <ScrollRevealFade key={index}>
             <PokemonCard
